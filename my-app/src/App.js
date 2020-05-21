@@ -1,32 +1,53 @@
 import React, {Component} from 'react';
 import './App.css';
-import UserInput from './UserInput';
-import UserOutput from './UserOutput';
+import './CharComponent/CharComponent.css'
+import ValidationComponent from './ValidationComponent';
+import CharComponent from './CharComponent/CharComponent';
 
 
 class App extends Component {
   state= {
-    userNames:['bocacrst','adi69420','cocalaruSexMachine']
+    userImput: ''
+    
+    
   }
 
-  changeName = ()=>{
+  inputLength = (event)=>{
+     this.setState({
+       userImput: event.target.value,
+     
+    });
+
+    
+  }
+ 
+  deleteChar =(charIndex)=>{
+    const valueIn = this.state.userImput.split('');
+    valueIn.splice(charIndex,1);
+    const updateVal = valueIn.join('');
+
     this.setState({
-      userNames:['bocacrst','adi69420','blood4mylove']
-    })
+
+      userImput: updateVal
+    
+   });
+   console.log(valueIn);
   }
 
-  inputChange =(event)=>{
-    this.setState({
-      userNames:['bocacrst','adi69420', event.target.value]
-    })
-
-  }
   render(){
+
+    const charList = this.state.userImput.split('').map((char, index) =>{
+     return <CharComponent click = {()=>this.deleteChar(index)} character = {char} key={index} />
+
+    });
+
+
     return (
       <div className="App">
-        <UserInput change = {this.inputChange} username= {this.state.userNames[2]} />
-        <UserOutput username= {this.state.userNames[2]}  />
-        <button onClick ={this.changeName}>Change</button>
+       
+        <input type='text' onChange = {this.inputLength} value={this.state.userImput}/>
+        <ValidationComponent length = {this.state.userImput.length} />
+       {charList}
        
       </div>
     );
