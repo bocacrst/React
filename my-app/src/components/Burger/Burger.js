@@ -12,8 +12,7 @@ const burger = (props)=>{
         return arr.concat(cur)
     },[]);
 
-    console.log(transformedIngredients.length,transformedIngredients);
-
+    
     if (transformedIngredients.length === 0){
         transformedIngredients = <p>Please add ingredients</p>;
     }
