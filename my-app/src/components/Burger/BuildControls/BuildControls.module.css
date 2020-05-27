@@ -8,3 +8,45 @@
     margin: auto;
     padding: 10px 0;
 }
+
+.OrderButton{
+    cursor: pointer;
+    background-color: rgb(50, 218, 27);
+    color: white;
+    font-weight: bold;
+    font-family: inherit;
+    padding:  10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.288);
+}
+
+.OrderButton:hover, 
+.OrderButton:active{
+    background-color: rgb(53, 180, 36);
+    transition: background-color 250ms ease ;
+    
+}
+
+.OrderButton:disabled{
+    background-color: rgb(112, 112, 112);
+    cursor: not-allowed;
+    color: #888;
+}
+
+.OrderButton:not(:disabled){
+    transition: background-color 250ms ease ;
+}
+
+@keyframes enable {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
