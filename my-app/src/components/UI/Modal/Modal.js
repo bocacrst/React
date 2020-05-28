@@ -1,10 +1,18 @@
 import React from 'react';
-import classes from './Modal.module.css'
+import classes from './Modal.module.css';
+import BackDrop from '../BackDrop/BackDrop';
 
-const modal = (props)=>(
-    <div className={classes.Modal}>
-        {props.children}
-    </div>
-);
+const modal = (props)=>{
+   return(
+    <React.Fragment>
+        <BackDrop show={props.show} clicked={props.modalClosed}/>
+        <div className={classes.Modal} style={{transform: props.show ? 'translateY(0)' : 'translateY(-100vh)'}}>
+            {props.children}
+        </div>
+    
+
+    </React.Fragment>
+   )
+};
 
 export default modal;
