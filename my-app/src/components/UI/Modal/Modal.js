@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classes from './Modal.module.css';
 import BackDrop from '../BackDrop/BackDrop';
 
-const modal = (props)=>{
-   return(
-    <React.Fragment>
-        <BackDrop show={props.show} clicked={props.modalClosed}/>
-        <div className={classes.Modal} style={{transform: props.show ? 'translateY(0)' : 'translateY(-100vh)'}}>
-            {props.children}
-        </div>
-    
+class Modal extends Component {
 
-    </React.Fragment>
-   )
+    shouldComponentUpdate(nextProps, nextState){
+        return nextProps.show !== this.props.show;
+    }
+
+   render(){
+    return(
+        <React.Fragment>
+            <BackDrop show={this.props.show} clicked={this.props.modalClosed}/>
+            <div className={classes.Modal} style={{transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)'}}>
+                {this.props.children}
+            </div>
+        
+    
+        </React.Fragment>
+       )
+   }
 };
 
-export default modal;
+export default Modal;
