@@ -1,6 +1,6 @@
 .BuildControls{
     width: 100%;
-    background-color: coral;
+    background-color:#f1c40f;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -11,7 +11,7 @@
 
 .OrderButton{
     cursor: pointer;
-    background-color: rgb(50, 218, 27);
+    background-color:#2ecc71;
     color: white;
     font-weight: bold;
     font-family: inherit;
@@ -24,7 +24,7 @@
 
 .OrderButton:hover, 
 .OrderButton:active{
-    background-color: rgb(53, 180, 36);
+    background-color:rgb(49, 173, 32);
     transition: background-color 250ms ease ;
     
 }
